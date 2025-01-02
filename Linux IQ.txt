@@ -1,3 +1,5 @@
+Scenario: Disk Space Issues
+=================================
 1)You are managing a production server and notice that the disk space is running low. How would you diagnose and resolve this issue on a Linux system?
 or
 Your production server is running out of disk space. How would you investigate and resolve the issue on a Linux server?"
@@ -24,8 +26,6 @@ What would you do if a critical application (like a database or web server) is r
 or
 Sometimes disk space issues are caused by hidden or untracked files (such as deleted files held by processes). How would you identify and deal with such situations?
 
-Ans)  Scenario: Disk Space Issues
-===============================
 Answer:
 
 i)First, use the command df -h to check the disk usage on all mounted file systems. This will show you which partitions are near full.
