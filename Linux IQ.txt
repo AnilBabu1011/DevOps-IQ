@@ -27,7 +27,6 @@ or
 Sometimes disk space issues are caused by hidden or untracked files (such as deleted files held by processes). How would you identify and deal with such situations?
 
 Answer:
-
 i)First, use the command df -h to check the disk usage on all mounted file systems. This will show you which partitions are near full.
 ii)Identify the directories with the most significant disk usage using du -sh /* or du -sh /path/to/directory to see what directories or files are taking up the most space.
 iii)You can also use ncdu (if available) for a more interactive way of viewing disk usage.
