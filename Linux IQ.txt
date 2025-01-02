@@ -34,3 +34,30 @@ iv)Once identified, take actions like deleting old files, clearing caches, and r
 v)Use logrotate to manage log files to prevent them from consuming too much disk space over time.
 vi)If the problem persists, consider expanding disk space or adding another disk.
 
+Scenario: Process Management
+===========================================
+2)A critical process has hung on a Linux server, and you need to terminate it without disrupting other services. What steps would you take?
+or
+How would you terminate a hung process on a Linux server while ensuring that no other services are disrupted?
+or
+What steps would you take to investigate and fix a process that has hung on your Linux server?
+or
+What Linux tools would you use to identify and terminate a hung process without affecting other processes or services?
+or
+In a production environment where high availability is critical, how would you handle a hung process without impacting uptime?
+or
+What would you do after terminating a hung process to ensure that there are no underlying issues?
+or
+What would you do if the hung process is part of a service that has multiple dependencies? How would you avoid affecting other services?
+or
+If the hung process is repeatedly causing issues, how would you approach fixing the root cause instead of just terminating it?
+or
+
+Answer:
+
+i)Identify the Process: Use ps aux or top to locate the hung process by examining its PID and resource usage.
+ii)Try Graceful Termination: First, attempt to stop the process gracefully with kill <PID>, which sends a SIGTERM signal.
+iii)Forceful Termination: If the process does not respond, use kill -9 <PID> to forcefully terminate it with the SIGKILL signal.
+iv)Verify Impact: Ensure no critical services are disrupted by checking service statuses with systemctl status <service> or ps aux | grep <service>.
+v)Check Logs: After termination, review system logs (/var/log/syslog, journalctl) for any errors or issues related to the hung process.
+
