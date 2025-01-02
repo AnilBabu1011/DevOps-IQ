@@ -1,0 +1,37 @@
+1)You are managing a production server and notice that the disk space is running low. How would you diagnose and resolve this issue on a Linux system?
+or
+Your production server is running out of disk space. How would you investigate and resolve the issue on a Linux server?"
+or
+What Linux commands would you use to check disk space usage and find out which files are consuming the most space?
+or
+You notice that a server is running low on disk space and the df command shows /var is 100% full. How would you proceed with troubleshooting?
+or
+How would you assess whether running low on disk space is affecting the performance of your Linux server? What steps would you take to mitigate this?
+or
+What role does log file management play in preventing disk space issues on a production server? How would you handle log files consuming too much space?
+or
+If you need to automatically clean up space when disk usage exceeds a threshold, how would you configure a script or automation on a Linux server?
+or
+How would you identify and clean up temporary files or caches that may be using up disk space on a Linux system?
+or
+You notice large files taking up space on your server. How would you go about identifying and managing these files?
+or
+Once you've freed up some disk space, how would you prevent disk space issues from reoccurring on the server?
+or
+Would you always try to clean up disk space, or would you consider adding additional disk space to resolve the issue? What factors would influence your decision?
+or
+What would you do if a critical application (like a database or web server) is running out of disk space and can't afford to go offline for a cleanup?
+or
+Sometimes disk space issues are caused by hidden or untracked files (such as deleted files held by processes). How would you identify and deal with such situations?
+
+Ans)  Scenario: Disk Space Issues
+===============================
+Answer:
+
+i)First, use the command df -h to check the disk usage on all mounted file systems. This will show you which partitions are near full.
+ii)Identify the directories with the most significant disk usage using du -sh /* or du -sh /path/to/directory to see what directories or files are taking up the most space.
+iii)You can also use ncdu (if available) for a more interactive way of viewing disk usage.
+iv)Once identified, take actions like deleting old files, clearing caches, and rotating logs. Use commands like rm or find to remove unwanted files.
+v)Use logrotate to manage log files to prevent them from consuming too much disk space over time.
+vi)If the problem persists, consider expanding disk space or adding another disk.
+
