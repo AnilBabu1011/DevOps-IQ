@@ -88,4 +88,64 @@ Answer:
 •	If the user isn’t part of the group, you can add them using usermod -aG <groupname> <username>.
 •	Ensure the parent directory’s permissions don’t restrict access (e.g., chmod on parent directories).
 
+Scenario: Service Failure After Reboot
+======================================
+4)After a server reboot, an important service (e.g., Apache, MySQL) fails to start automatically. How would you troubleshoot and resolve this issue?
+or
+A critical service fails to start after a reboot. How would you determine if the service has missing dependencies or configuration issues?
+or
+How would you investigate why a service fails to start after a reboot, especially considering boot sequence issues?
+or
+What would you check if a service fails to start after a reboot due to permission or resource issues?
+or
+If a service fails to start automatically after a reboot, how would you use systemd to diagnose and fix the issue?
+or
+How would you troubleshoot a service that is failing to start after a reboot, possibly due to system resource limits?
+or
+If Apache or MySQL fails to start after a reboot, how would you specifically troubleshoot and resolve the issue for these applications?
+or
+How would you handle a service that is not starting due to dependencies or timing issues during boot?
+or
+What would you check if the service fails to start due to file system or disk issues after a reboot?
+
+Answer:
+•	Check Service Status: Use systemctl status <service> (e.g., systemctl status apache2 or systemctl status mysql) to check the current status of the service and whether it is enabled to start at boot.
+•	Check Service Logs: Use journalctl -u <service> to review the logs for any errors or reasons why the service failed to start.
+•	Check for Dependencies: Review if any dependent services or resources (like databases, network connections, or mounts) failed to start or are unavailable.
+•	Check for Configuration Issues: Verify the configuration files of the service for any errors or misconfigurations (e.g., Apache's httpd.conf, MySQL’s my.cnf).
+•	Check System Logs: Check the general system logs (/var/log/syslog, /var/log/messages) for any boot-related errors or messages that could indicate why the service failed.
+•	Enable the Service at Boot: Ensure the service is enabled to start on boot with systemctl enable <service>.
+•	Manually Start the Service: Try to start the service manually using systemctl start <service> and observe any errors that might provide more details on why it’s failing.
+
+Scenario: Network Troubleshooting
+=========================================
+5)A server in your data center cannot communicate with an external API. How would you troubleshoot network connectivity issues on Linux?
+or
+What would you do if the server is unable to communicate with an external API using its domain name?
+or
+How would you troubleshoot a situation where the server can ping local devices but cannot reach an external API?
+or
+If your server cannot communicate with an external API, how would you determine if firewall rules are blocking the connection?
+or
+How would you test if a specific API is reachable from your server using curl or wget ?
+or
+What if the network connectivity issue is due to packet fragmentation or MTU (Maximum Transmission Unit) issues?
+or
+How would you troubleshoot if a proxy or network interception is preventing connectivity to the external API?
+or
+How would you diagnose if the issue is related to the TCP/IP stack on the server?
+or
+What if the problem lies with a load balancer or a reverse proxy between your server and the external API?
+
+Answer:
+•	Check Network Interface Configuration: First, ensure the server has the correct IP address, subnet mask, and gateway configured. Use ip a to verify network interfaces and ip route to check the routing table.
+•	Ping the API Server: Try to ping the external API server using its IP address or domain name (e.g., ping api.example.com or ping <API-IP>). This checks for basic network reachability.
+•	Traceroute to the API Server: Use traceroute api.example.com or traceroute <API-IP> to identify where the connection fails. This helps to isolate whether the issue is within the local network, at the gateway, or beyond.
+•	Check DNS Resolution: If you're using the domain name to access the API, verify DNS resolution with nslookup api.example.com or dig api.example.com. If DNS is not working, check /etc/resolv.conf to ensure correct DNS servers are configured.
+•	Check Firewall Rules: Ensure that both local firewalls (e.g., iptables, firewalld) and external firewalls are not blocking the necessary ports for communication with the API. Use iptables -L or firewall-cmd --list-all to review the rules.
+•	Check External Routing: Ensure that there are no external network issues or restrictions preventing access to the API. If the server is behind a NAT gateway, check the NAT configuration.
+•	Review Logs: Check the system logs (/var/log/syslog, /var/log/messages) for any networking-related errors.
+
+
+
 
